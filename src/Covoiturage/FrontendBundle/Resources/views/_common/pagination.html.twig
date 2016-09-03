@@ -1,0 +1,20 @@
+<div class="pager">
+    {% if pagination.page>1 %}
+        <a href="{{ path(pagination.route,
+            pagination.route_params|merge({'page': 1})) }}">‹‹</a>
+        <a href="{{ path(pagination.route,
+            pagination.route_params|merge({'page': pagination.page-1})) }}">‹</a>
+    {% endif %}
+    {% for p in range(max(pagination.page-4, 1),
+    min(pagination.page+4, pagination.pages_count)) %}
+        <a{% if p == pagination.page %} class="current color"{% endif %}
+                    href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
+    {% endfor %}
+    {% if pagination.page<pagination.pages_count %}
+        <a href="{{ path(pagination.route,
+            pagination.route_params|merge({'page': pagination.page+1})) }}">›</a>
+        <a href="{{ path(pagination.route,
+            pagination.route_params|merge({'page': pagination.pages_count})) }}">››</a>
+    {% endif %}
+</div>

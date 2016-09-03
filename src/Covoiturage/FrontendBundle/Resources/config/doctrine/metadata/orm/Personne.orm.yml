@@ -1,0 +1,34 @@
+Personne:
+    type: entity
+    table: personne
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        pseudo:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        email:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+        tel:
+            type: integer
+            unsigned: false
+            nullable: false
+        sex:
+            type: integer
+            unsigned: false
+            nullable: false
+        age:
+            type: integer
+            unsigned: false
+            nullable: true
+    lifecycleCallbacks: {  }

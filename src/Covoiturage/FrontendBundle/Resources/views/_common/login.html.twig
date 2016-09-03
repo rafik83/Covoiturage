@@ -1,0 +1,32 @@
+{% block fos_user_content %}
+<form action="{{ path("fos_user_security_check") }}" method="POST">
+            <input type="hidden" name="_csrf_token" value={{ csrf }} />
+
+            <div class="f-row">
+                <div class="full-width">
+                    <label for="username">Login</label>
+                    <input type="text" id="username" name="_username" placeholder="Login"  value="" required="required">
+                </div>
+            </div>
+            <div class="f-row">
+                <div class="full-width">
+                    <label for="password">Mot de passe</label>
+                    <input  type="password" id="password" name="_password" required="required" placeholder="Mot de passe" >
+                </div>
+            </div>
+            <div class="f-row">
+                <div class="full-width check">
+                    <div class="checker" id="uniform-checkbox"><span> <input type="checkbox" id="remember_me" name="_remember_me" value="on" /></span></div>
+                    <label for="remember_me">Se souvenir de moi</label>
+                </div>
+            </div>
+            <div class="f-row">
+                <div class="full-width">
+                    <input type="submit" value="Login" class="btn color medium full">
+                </div>
+            </div>
+
+            <p><a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié?</a><br>Pas encore membre? <a href="{{ path('fos_user_registration_register') }}">Inscris-toi!</a></p>
+        </form>
+
+{% endblock fos_user_content %}

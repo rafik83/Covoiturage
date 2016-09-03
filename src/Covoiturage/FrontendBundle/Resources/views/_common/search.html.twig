@@ -1,0 +1,39 @@
+<!-- Search -->
+<div class="advanced-search color" id="booking">
+<div class="wrap">
+<form role="form" action="{{ path('covoiturage_frontend_search') }}" method="GET">
+<!-- Row -->
+<div class="f-row">
+    <div class="form-group datepicker one-third">
+        <label for="dep-date">DATE ET HEURE DE DÉPART</label>
+        <input type="text" id="dep-date"  name="date" value="{{ date_form|default('') }}"/>
+    </div>
+    <div class="form-group select one-third">
+        <label for="select-depart" >RAMASSEZ L'EMPLACEMENT</label>
+        {{ render(controller('CovoiturageFrontendBundle:Place:getLocations', { 'name': 'depart','selected':depart|default(0) })) }}
+    </div>
+    <div class="form-group select one-third">
+        <label for="select-arrive">LIEU DE RESTITUTION</label>
+        {{ render( controller( 'CovoiturageFrontendBundle:Place:getLocations', {'name':'arrive','selected':arrive|default(0)} )) }}
+
+    </div>
+</div>
+<!-- //Row -->
+
+
+
+<!-- Row -->
+<div class="f-row">
+    <div class="form-group right">
+        <button type="submit" class="btn large black">Trouver</button>
+    </div>
+    <div class="form-group spinner">
+        <label for="people">COMBIEN DE PERSONNES?</label>
+        <input type="number" id="people" name="place" min="1"  />
+    </div>
+</div>
+<!--// Row -->
+</form>
+</div>
+</div>
+<!-- //Search -->

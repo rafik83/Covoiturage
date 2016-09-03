@@ -1,0 +1,10 @@
+parameters:
+    covoiturage_frontend.login_event.class: Covoiturage\FrontendBundle\Listener\LoginListener
+
+services:
+    covoiturage_frontend.login_event:
+        class: %covoiturage_frontend.login_event.class%
+        arguments: [@doctrine,@session,@router]
+        tags:
+          - { name: 'kernel.event_subscriber'}
+          - { name: kernel.event_listener, event: security.interactive_login, method: onAuthSuccess }

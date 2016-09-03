@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Navette - Bienvenu {% endblock %}
+
+{% block content %}
+
+    {% block fos_user_content %}
+        <p>Bienvenu sur Navette <b>{{  user.username }}</b>, vous pouvez <a href="{{ path('covoiturage_frontend_voyage_publish') }}" class="btn medium color">Poster une navette</a></p>
+        {% if app.session is not empty %}
+            {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+            {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">Retour</a></p>{% endif %}
+        {% endif %}
+    {% endblock fos_user_content %}
+{% endblock %}

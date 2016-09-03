@@ -1,0 +1,89 @@
+{% extends '::base.html.twig' %}
+{% block title %} Modification navette {% endblock %}
+
+{% block content %}
+
+<h1>Modifier Navette</h1>
+
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+      {{ form_label(form.horaire, "Horaire", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.horaire) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.horaire, {'attr': {'class': 'horaire-navette'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form_label(form.prix, "Prix", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.prix) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.prix, {'attr': {'class': 'col-sm-3'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form_label(form.nbPlace, "Nombre places", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.nbPlace) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.nbPlace, {'attr': {'class': 'col-sm-3'}}) }}
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      {{ form_label(form.frequence, "Fréquence", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.frequence) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.frequence, {'attr': {'class': 'col-sm-8'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form_label(form.idDepart, "Départ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.idDepart) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.idDepart, {'attr': {'class': 'col-sm-8'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form_label(form.idArrive, "Arrivée", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.idArrive) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.idArrive, {'attr': {'class': 'col-sm-8'}}) }}
+      </div>
+    </div>
+
+
+
+
+    <div class="rowSubmit clearfix">
+        <button type="reset" class="link-reset btn btn-icon btn-gray btn-discard"  style="outline: none;"><span>Annuler</button>
+
+              {{ form_widget(form.publish, {'attr': {'class': 'btn btn-icon btn-icon-send btn-submit'}}) }}
+
+    </div>
+
+
+
+  {{ form_rest(form) }}
+
+{{ form_end(form) }}
+
+{% endblock %}

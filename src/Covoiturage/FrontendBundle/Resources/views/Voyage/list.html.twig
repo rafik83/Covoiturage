@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Navette - Page {{ page|default(1) }} {% endblock %}
+
+{%  block content %}
+<div class="wrap">
+    <div class="row">
+        <div class="full-width content">
+            {% block flashbag_notice %}
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="flash-notice">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+            {% endblock %}
+            <div class="results">
+                {% for voyage in list_voyages %}
+                    {% include 'CovoiturageFrontendBundle:line:voyage.html.twig' with {'voyage':voyage,'user_reservations':user_reservations} %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

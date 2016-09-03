@@ -1,0 +1,30 @@
+<header class="header" role="banner">
+    <div class="wrap">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="{{ path('covoiturage_frontend_homepage') }}" title="Transfers"><img src="{{ asset('bundles/covoituragefrontend/images/logo.png') }}" alt="Navette" /></a>
+        </div>
+        <!-- //Logo -->
+
+        <!-- Main Nav -->
+        <nav role="navigation" class="main-nav">
+            <ul>
+                <li {% if app.request.attributes.get('_route') == 'covoiturage_frontend_voyage_list' %}class="active"{% endif %}><a href="{{ path('covoiturage_frontend_voyage_list') }}">Les navettes</a></li>
+                <li {% if app.request.attributes.get('_route') == 'covoiturage_frontend_voyage_publish' %}class="active"{% endif %}><a href="{{ path('covoiturage_frontend_voyage_publish') }}">Poster navette</a></li>
+                <li><a href="contact.html">A propos</a></li>
+            </ul>
+        </nav>
+        <!-- //Main Nav -->
+
+        <!-- Subscribe btn -->
+        <div class="subscribe">
+            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+
+            <a href="{{ path('fos_user_security_login') }}" class="btn medium color">S'inscrire</a>
+            {% else %}
+                <a href="{{ path('covoiturage_frontend_voyage_user') }}" class="btn medium color">Mes navettes</a>
+            {% endif %}
+        </div>
+        <!-- //Subscribe btn -->
+    </div>
+</header>

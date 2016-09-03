@@ -1,0 +1,32 @@
+Voiture:
+    type: entity
+    table: voiture
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        marque:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        photo:
+            type: string
+            length: 500
+            fixed: false
+            nullable: true
+    manyToOne:
+        idPersonne:
+            targetEntity: Personne
+            cascade: {  }
+            mappedBy: null
+            inversedBy: personne
+            joinColumns:
+                id_personne:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

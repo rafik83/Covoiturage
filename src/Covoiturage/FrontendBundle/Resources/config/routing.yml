@@ -1,0 +1,52 @@
+covoiturage_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: CovoiturageFrontendBundle:Default:index }
+
+covoiturage_frontend_voyage_publish:
+    pattern:  /navette/publish
+    defaults: { _controller: CovoiturageFrontendBundle:Voyage:publish }
+
+covoiturage_frontend_voyage_list:
+    pattern:  /navette/list/{page}
+    defaults: { _controller: CovoiturageFrontendBundle:Voyage:list,page:1 }
+    requirements:
+        page: -?\d+
+
+covoiturage_frontend_voyage_modify:
+    pattern:  /navette/modify/{id}
+    defaults: { _controller: CovoiturageFrontendBundle:Voyage:modify }
+
+covoiturage_frontend_voyage_delete:
+    pattern:  /navette/delete/{id}
+    defaults: { _controller: CovoiturageFrontendBundle:Voyage:delete }
+
+covoiturage_frontend_voyage_show:
+    pattern:  /navette/{id}
+    defaults: { _controller: CovoiturageFrontendBundle:Voyage:show }
+    requirements:
+        id: -?\d+
+
+covoiturage_frontend_voyage_user:
+    pattern:  /navette/mes-navettes/{page}
+    defaults: { _controller: CovoiturageFrontendBundle:User:voyages,page:1 }
+
+covoiturage_frontend_voyage_reservation:
+    pattern:  /navette/reservation/submit
+    defaults: { _controller: CovoiturageFrontendBundle:Reservation:reservationSubmit }
+
+######Gov list root###########
+covoiturage_frontend_getGouvernorats:
+    pattern:  /list/gouvernorats
+    defaults: { _controller: CovoiturageFrontendBundle:Place:getGouvernorats }
+######Del list root###########
+covoiturage_frontend_getDelegations:
+    pattern:  /list/delegations
+    defaults: { _controller: CovoiturageFrontendBundle:Place:getDelegations }
+######Loc list root###########
+covoiturage_frontend_getLocations:
+    pattern:  /list/locations
+    defaults: { _controller: CovoiturageFrontendBundle:Place:getLocations }
+######search root###########
+covoiturage_frontend_search:
+    pattern:  /search/{page}
+    defaults: { _controller: CovoiturageFrontendBundle:Default:search,page:1 }

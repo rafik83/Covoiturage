@@ -1,0 +1,17 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="application/javascript">
+    var urlVoyageResrvation = '{{ path("covoiturage_frontend_voyage_reservation") }}';
+</script>
+{% javascripts filter='?uglifyjs'
+    '@CovoiturageFrontendBundle/Resources/public/js/libs/bootstrap.min.js'
+    '@CovoiturageFrontendBundle/Resources/public/js/jquery.uniform.min.js'
+    '@CovoiturageFrontendBundle/Resources/public/js/jquery.datetimepicker.js'
+    '@CovoiturageFrontendBundle/Resources/public/js/jquery.slicknav.min.js'
+    '@CovoiturageFrontendBundle/Resources/public/js/wow.min.js'
+    '@CovoiturageFrontendBundle/Resources/public/js/search.js'
+    '@CovoiturageFrontendBundle/Resources/public/js/scripts.js'
+    '@CovoiturageFrontendBundle/Resources/public/js/general.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+

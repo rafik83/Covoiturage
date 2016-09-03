@@ -1,0 +1,8 @@
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+covoiturage_frontend:
+    resource: "@CovoiturageFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+

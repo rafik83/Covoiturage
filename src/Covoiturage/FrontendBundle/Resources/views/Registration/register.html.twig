@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+
+{% block content %}
+
+    <div class="wrap">
+        <div class="row">
+        <!--- Content -->
+            <div class="content one-half modal">
+                <!--Register-->
+                <div class="box">
+    {% include 'CovoiturageFrontendBundle:Registration:register_content.html.twig' %}
+                </div>
+                <!--Register-->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

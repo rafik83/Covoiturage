@@ -1,0 +1,17 @@
+{# src/Acme/TaskBundle/Resources/views/Default/new_gov.html.twig #}
+
+{#{ form(form) }#}
+{% spaceless %}
+{%  if list_options|length > 0  %}
+    <select id="select-{{ select_field }}"  class="annonce_idLocalite select_styled blue" name="{{ select_field }}" required>
+        <option value="0">Choisir votre localié</option>
+        {% for option in list_options %}
+            <option value="{{ option.id }}" {% if  option.id == selected%} selected{% endif %}>{{ option.name }}</option>
+        {% endfor %}
+    </select>
+{% else %}
+    <select id="select-{{ select_field }}" class="annonce_idLocalite select_styled blue" name="{{ select_field }}" >
+        <option value="0">-</option>
+    </select>
+{% endif %}
+{% endspaceless %}

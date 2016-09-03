@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% block meta %}
+        <meta name="author" content="">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>{% block title %}Navette {% endblock %}</title>
+    {%  include 'CovoiturageFrontendBundle:_common:head.html.twig' %}
+</head>
+
+<body {% if app.request.attributes.get('_route') == 'covoiturage_frontend_homepage' %} class="home"{% endif %}>
+
+{% include 'CovoiturageFrontendBundle:_common:header.html.twig' %}
+
+<!-- Main -->
+<main class="main" role="main">
+{% if app.request.attributes.get('_route') != 'covoiturage_frontend_homepage' %}
+    {% block search %}
+        {% include 'CovoiturageFrontendBundle:_common:search.html.twig' %}
+    {% endblock %}
+{% endif %}
+        {% block content %}{% endblock %}
+
+
+    {% if pagination is defined and pagination.pages_count >0 %}
+        {% block pagination %}
+            {% include 'CovoiturageFrontendBundle:_common:pagination.html.twig' with {'pagination':pagination} %}
+        {% endblock %}
+    {% endif %}
+</main>
+<!-- //Main -->
+
+
+{% include 'CovoiturageFrontendBundle:_common:footer.html.twig' %}
+
+<!-- Preloader -->
+<div class="preloader">
+    <div id="followingBallsG">
+        <div id="followingBallsG_1" class="followingBallsG"></div>
+        <div id="followingBallsG_2" class="followingBallsG"></div>
+        <div id="followingBallsG_3" class="followingBallsG"></div>
+        <div id="followingBallsG_4" class="followingBallsG"></div>
+    </div>
+</div>
+<!-- //Preloader -->
+
+
+
+{% block javascripts %}
+    {% include 'CovoiturageFrontendBundle:_common:loadjs.html.twig' %}
+{% endblock %}
+</body>
+</html>

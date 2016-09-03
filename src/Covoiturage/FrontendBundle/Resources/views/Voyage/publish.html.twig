@@ -1,0 +1,101 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Navette - Publication d'une navette {% endblock %}
+
+{% block content %}
+
+<div class="wrap">
+    <div class="row">
+    <!--- Content -->
+        <div class="content one-half modal">
+            <!--Publish-->
+            <div class="box">
+
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {{ form_errors(form) }}
+
+
+
+    <div class="f-row">
+        <div class="full-width">
+            <label for="name"> {{ form_label(form.horaire, "Horaire", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}</label>
+        {{ form_widget(form.horaire, {'attr': {'class': 'horaire-navette'}}) }}
+      {{ form_errors(form.horaire) }}
+        </div>
+    </div>
+
+
+
+    <div class="f-row">
+        <div class="full-width">
+            <label for="name">       {{ form_label(form.prix, "Prix", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+</label>
+        {{ form_widget(form.prix, {'attr': {'class': 'col-sm-3'}}) }}
+      {{ form_errors(form.prix) }}
+        </div>
+    </div>
+
+  <div class="f-row">
+        <div class="full-width">
+            <label for="name">        {{ form_label(form.nbPlace, "Nombre places", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+</label>
+        {{ form_widget(form.nbPlace, {'attr': {'class': 'col-sm-3'}}) }}
+      {{ form_errors(form.nbPlace) }}
+        </div>
+    </div>
+
+      <div class="f-row">
+            <div class="full-width">
+                <label for="name">             {{ form_label(form.frequence, "Fréquence", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+    </label>
+        {{ form_widget(form.frequence, {'attr': {'class': 'col-sm-8'}}) }}
+      {{ form_errors(form.frequence) }}
+            </div>
+        </div>
+
+        <div class="f-row">
+                <div class="full-width">
+                    <label for="name">{{ form_label(form.idDepart, "Départ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </label>
+        {{ form_widget(form.idDepart, {'attr': {'class': 'col-sm-8'}}) }}
+      {{ form_errors(form.idDepart) }}
+                </div>
+            </div>
+
+        <div class="f-row">
+            <div class="full-width">
+                <label for="name">      {{ form_label(form.idArrive, "Arrivée", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+        </label>
+        {{ form_widget(form.idArrive, {'attr': {'class': 'col-sm-8'}}) }}
+      {{ form_errors(form.idArrive) }}
+            </div>
+        </div>
+
+
+ <div class="f-row">
+        <div class="full-width">
+              {{ form_widget(form.publish, {'label':'Créer mon navette','attr': {'class': 'btn color medium full'}}) }}
+        </div>
+    </div>
+
+
+
+
+
+
+
+  {{ form_rest(form) }}
+
+{{ form_end(form) }}
+
+
+           </div>
+                <!--Publish-->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

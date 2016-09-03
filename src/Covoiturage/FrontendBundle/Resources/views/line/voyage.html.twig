@@ -1,0 +1,33 @@
+<article class="result">
+    <div class="one-fourth heightfix"><img src="{{ asset('bundles/covoituragefrontend/images/map-not-available.png') }}" alt="" /></div>
+    <div class="one-half heightfix">
+        <h3>{{ voyage.idDepart.name }} → {{ voyage.idArrive.name }} à {{ voyage.horaire|date }} <a href="javascript:void(0)" class="trigger color" title="Description">?</a></h3>
+        <ul>
+            <li>
+                <span class="ico people"></span>
+                <p>Places Dispo <br /><strong>{{ voyage.getFreeReservations() }} places</strong> <br /></p>
+            </li>
+            <li>
+                <span class="ico time"></span>
+                <p>Temps d'arrivée <br /><strong>50 mins</strong></p>
+            </li>
+            <li>
+                <span class="ico luggage"></span>
+                <p>Porte de bagage <br /></br.><strong>possible</strong></p>
+            </li>
+        </ul>
+    </div>
+    <div class="one-fourth heightfix">
+        <div>
+            <div class="price">{{ voyage.prix }} <small>DT</small></div>
+            <span class="meta">par passager</span>
+            {% if voyage.getFreeReservations() > 0  and (user_reservations[voyage.getId()] == 0) and app.user != voyage.getUtilisateur() %}
+            <button type="button" onclick="reservation({{ voyage.getId() }})" class="btn grey large">réserver</button>
+            {% endif %}
+        </div>
+    </div>
+    <div class="full-width information">
+        <a href="javascript:void(0)" class="close color" title="Close">x</a>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    </div>
+</article>

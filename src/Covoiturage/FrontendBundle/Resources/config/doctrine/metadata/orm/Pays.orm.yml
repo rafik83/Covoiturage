@@ -1,0 +1,17 @@
+Pays:
+    type: entity
+    table: pays
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+    lifecycleCallbacks: {  }

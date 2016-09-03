@@ -1,0 +1,58 @@
+Voyage:
+    type: entity
+    table: voyage
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        horaire:
+            type: string
+            length: 16
+            fixed: false
+            nullable: true
+        prix:
+            type: integer
+            unsigned: false
+            nullable: true
+        nbPlace:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: nb_place
+        frequence:
+            type: integer
+            unsigned: false
+            nullable: true
+    manyToOne:
+        idArrive:
+            targetEntity: Localite
+            cascade: {  }
+            mappedBy: null
+            inversedBy: arrive
+            joinColumns:
+                id_arrive:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idDepart:
+            targetEntity: Localite
+            cascade: {  }
+            mappedBy: null
+            inversedBy: depart
+            joinColumns:
+                id_depart:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idVoiture:
+            targetEntity: Voiture
+            cascade: {  }
+            mappedBy: null
+            inversedBy: voiture
+            joinColumns:
+                id_voiture:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

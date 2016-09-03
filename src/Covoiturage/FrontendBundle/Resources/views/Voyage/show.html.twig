@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+
+{%  block content %}
+
+{% include 'CovoiturageFrontendBundle:line:voyage.html.twig' with {'voyage':voyage,'user_reservations':user_reservations} %}
+
+{% endblock %}

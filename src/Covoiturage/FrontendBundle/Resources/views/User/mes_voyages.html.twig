@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{%  block content %}
+<div class="price-list">
+        <ul class="price-top clearfix">
+            <li class="price-content">Trajets</li>
+            <li class="price">Pl.libres & Prix</li>
+            <li class="price-reserve">Réservation</li>
+        </ul>
+</div>
+    {% for voyage in list_voyages %}
+        {% include 'CovoiturageFrontendBundle:line:voyage.html.twig' with {'voyage':voyage} %}
+    {% endfor %}
+
+    {% include 'CovoiturageFrontendBundle:_common:pagination.html.twig' with {'pagination':pagination} %}
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+Gouvernorat:
+    type: entity
+    table: gouvernorat
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+    manyToOne:
+        idPays:
+            targetEntity: Pays
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_pays:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

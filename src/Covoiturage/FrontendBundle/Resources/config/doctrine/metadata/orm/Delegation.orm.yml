@@ -1,0 +1,27 @@
+Delegation:
+    type: entity
+    table: delegation
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 200
+            fixed: false
+            nullable: false
+    manyToOne:
+        idGouvernorat:
+            targetEntity: Gouvernorat
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_gouvernorat:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

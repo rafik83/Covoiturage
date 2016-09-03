@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Navette - Connection {% endblock %}
+{% block content %}
+    {% if error %}
+        <div class="alert alert-danger" style="font-size: 1.2em;">Login ou Mot de passe invalide</div>
+    {% endif %}
+
+    <div class="wrap">
+        <div class="row">
+            <!--- Content -->
+            <div class="content one-half modal">
+                <!--Login-->
+                <div class="box">
+                    {{ render(controller('CovoiturageFrontendBundle:User:login')) }}
+                </div>
+                <!--//Login-->
+            </div>
+            <!--- //Content -->
+        </div>
+    </div>
+
+
+{% endblock %}
